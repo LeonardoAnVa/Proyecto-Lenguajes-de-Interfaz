@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block cuerpo %}
+
+    <div class="container mt-3">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Eliminar</th>
+                <th>Editar</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Edad</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for reportero in reporteros %}
+                <tr>
+                    <td><a href="/reportero_baja/{{ reportero.id }}">
+                        <img width="32" height="32" src="https://img.icons8.com/fluency/32/delete-sign.png"
+                             alt="delete-sign"/>
+                    </a>
+                    </td>
+                    <td><a href="/reportero_editar/{{ reportero.id }}">
+                        <img width="30" height="30" src="https://img.icons8.com/officel/30/create-new.png"
+                             alt="create-new"/>
+                    </a>
+                    </td>
+                    <td>{{ reportero.first_name }}</td>
+                    <td>{{ reportero.last_name }}</td>
+                    <td>{{ reportero.email }}</td>
+                    <td>{{ reportero.getEdad }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

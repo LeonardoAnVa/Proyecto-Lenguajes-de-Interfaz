@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block cuerpo %}
+
+    <div class="container m-3">
+        <h2>Noticias</h2>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Eliminar</th>
+                <th>Editar</th>
+                <th>Titulo</th>
+                <th>Fecha de Publicación</th>
+                <th>Autor</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for noticia in noticias %}
+                <tr>
+                    <td><a href="/noticia_eliminar/{{ noticia.id }}">
+                        <img width="32" height="32" src="https://img.icons8.com/fluency/32/delete-sign.png"
+                             alt="delete-sign"/>
+                    </a>
+                    </td>
+                    <td><a href="/noticia_editar/{{ noticia.id }}">
+                        <img width="30" height="30" src="https://img.icons8.com/officel/30/create-new.png"
+                             alt="create-new"/>
+                        </a>
+                    </td>    
+                    <div>
+                        
+                        <td>{{ noticia.titulo }}</td>
+                        <td>{{ noticia.contenido }}</td>
+                        <td>Publicado por: {{ noticia.autor }}</td>
+                    </div>
+                </tr>
+                
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
